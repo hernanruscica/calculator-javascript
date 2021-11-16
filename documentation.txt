@@ -17,3 +17,7 @@ calculator: 512px
 screen: 
 keyboard:
 512/8 (6 rows for buttons + 2 for the screen) = 64px height for each button and 128px for the screen
+
+
+the 1st operator stays in botton screen until any operations buttons was pressed-
+16 digits plus the comma and minus sign.
