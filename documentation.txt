@@ -1,0 +1,19 @@
+buttons: 
+10 for digits
+4 for operations
+1 equal
+1 +/-
+1 comma
+1 CE (clear current)
+1 C (clear all)
+1 backspace (clear one digit)
+1 for 1/x
+1 for x^2
+1 for x^(1/2) square root
+
+
+heights:
+calculator: 512px
+screen: 
+keyboard:
+512/8 (6 rows for buttons + 2 for the screen) = 64px height for each button and 128px for the screen
