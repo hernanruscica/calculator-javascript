@@ -16,11 +16,29 @@ function subtDigitToOperator(operator){
     }
     return operator;
 }
+/*add or remove the minus sign*/
+function toggleMinusSign(operator){
+    if (operator[0] == '-'){
+        console.log("tiene signo menos");
+        operator = operator.replace("-", "");
+    }else{
+        operator = "-" + operator;
+        console.log("no tiene signo menos");
+    }
+    return operator;
+}
+
+/*add the signs of the operations to the end*/
+function addSignToTheEnd(operator, sign){
+
+    return operator + sign;
+}
 
 function drawBottomScreen(screen, newData){
     let $screen = document.querySelector(screen);        
     $screen.innerHTML = newData;    
 }
+
 
 
 let operator01 = "", operator02 = "41";
@@ -29,6 +47,8 @@ operator01 = addDigitToOperator(operator01, "1");
 operator02 = subtDigitToOperator(operator02);
 console.log(`Operador 1: ${operator01}\nOperador 2: ${operator02}\n `)*/
 drawBottomScreen(".screen-botton", operator01);
+/*drawBottomScreen(".screen-top", operator02);*/
+
 
 
 //recives the class of the buttons, in this case "button" itself.
@@ -51,6 +71,20 @@ export function readKeyboard(buttonClass, screenClass){
                 case "C": case "CE":
                     operator01 = "";
                     drawBottomScreen(".screen-botton", operator01);
+                break;
+                case "+/-":
+                    operator01 = toggleMinusSign(operator01);
+                    drawBottomScreen(".screen-botton", operator01);
+                break;
+                case "+": 
+                    operator01 = addSignToTheEnd(operator01, "+");
+                    drawBottomScreen(".screen-top", operator01);
+                    drawBottomScreen(".screen-botton", operator02);
+                break;
+                case "-": 
+                case "x": 
+                case "/":
+
                 break;
             }
 
