@@ -1,10 +1,29 @@
-import { sum, subt, mul, div } from "./modules/math.js";
-import {readKeyboard} from "./modules/keyboard.js";
 
-let val01 = 7, val02 = 2;
-console.log(`La suma entre ${val01} y ${val02} es ${sum(val01, val02)}`);
-console.log(`La resta entre ${val01} y ${val02} es ${subt(val01, val02)}`);
-console.log(`La multiplicacion entre ${val01} y ${val02} es ${mul(val01, val02)}`);
-console.log(`La division entre ${val01} y ${val02} es ${div(val01, val02)}`);
+const $calculator = document.querySelector(".calculator");
+/*Valor anterior*/
+const $screenTop = document.querySelector(".screen-top");
+/*Valor actual*/
+const $screenBotton = document.querySelector(".screen-botton");
+const $keys = $calculator.querySelectorAll("button");
 
-console.log(readKeyboard(".button", ".screen-top"));
+const display = new Display($screenTop, $screenBotton);
+
+$keys.forEach((elem) => {    
+    elem.addEventListener("click", (e) => {
+        if (e.target.name == "number"){
+            display.addNumber(e.target.id);
+        }        
+        if (e.target.id == "back"){
+            display.deleteNumber();
+        }
+        if (e.target.id == "C"){
+            display.deleteAll();
+        }
+        if (e.target.name == "operation"){            
+            display.compute(e.target.id);
+        }
+    });
+});
+
+
+

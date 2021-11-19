@@ -34,19 +34,19 @@ function addSignToTheEnd(operator, sign){
     return operator + sign;
 }
 
-function drawBottomScreen(screen, newData){
+function drawScreen(screen, newData){
     let $screen = document.querySelector(screen);        
     $screen.innerHTML = newData;    
 }
 
 
 
-let operator01 = "", operator02 = "41";
+let operator01 = "", operator02 = "";
 /* tests
 operator01 = addDigitToOperator(operator01, "1");
 operator02 = subtDigitToOperator(operator02);
 console.log(`Operador 1: ${operator01}\nOperador 2: ${operator02}\n `)*/
-drawBottomScreen(".screen-botton", operator01);
+drawScreen(".screen-botton", operator01);
 /*drawBottomScreen(".screen-top", operator02);*/
 
 
@@ -54,41 +54,32 @@ drawBottomScreen(".screen-botton", operator01);
 //recives the class of the buttons, in this case "button" itself.
 export function readKeyboard(buttonClass, screenClass){
     let $buttons = $d.querySelectorAll(buttonClass);
+    let btnLast = "", btnCurrent = "", state = "";
     $buttons.forEach((btn) => {
-        console.log(btn);
-        btn.addEventListener("click", (e) => {
-            console.log(`click en ${e.target.id}`);
-            switch (e.target.id){
-                case "0": case "1": case "2": case "3": case "4": case"5": 
-                case "6": case "7": case "8": case "9": 
-                    operator01 = addDigitToOperator(operator01, e.target.innerHTML);
-                    drawBottomScreen(".screen-botton", operator01);
-                break;
-                case "back":
-                    operator01 = subtDigitToOperator(operator01);
-                    drawBottomScreen(".screen-botton", operator01);
-                break;
-                case "C": case "CE":
-                    operator01 = "";
-                    drawBottomScreen(".screen-botton", operator01);
-                break;
-                case "+/-":
-                    operator01 = toggleMinusSign(operator01);
-                    drawBottomScreen(".screen-botton", operator01);
-                break;
-                case "+": 
-                    operator01 = addSignToTheEnd(operator01, "+");
-                    drawBottomScreen(".screen-top", operator01);
-                    drawBottomScreen(".screen-botton", operator02);
-                break;
-                case "-": 
-                case "x": 
-                case "/":
+        
+        btn.addEventListener("click", (e) => {            
+            btnLast = btnCurrent;
+            btnCurrent = e.target.name
+            console.clear();
+            console.log(`click actual en ${btnCurrent}\nClick anterior en ${btnLast}`);            
+            switch (e.target.name){
+                
+                case "number": 
+                    operator01 = addDigitToOperator(operator01, e.target.id);
+                break;                
 
+                case "mods":                  
+                    console.log("mods: modificando lo ingresado");
                 break;
-            }
-
+                
+                case "operation":            
+                    drawScreen(".screen-top", operator01 + e.target.id);                                            
+                    operator01 = operator01 + operator02;
+                break;
+            }    
             
+            drawScreen(".screen-botton", operator01);
+            console.log(state);
         })
     });
     

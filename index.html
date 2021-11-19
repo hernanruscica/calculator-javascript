@@ -16,39 +16,42 @@
             </div>
             <div class="keyboard">
                 <!--First row-->
-                <button class="button" id="%">%</button>
-                <button class="button" id="CE">CE</button>
-                <button class="button" id="C">C</button>
-                <button class="button" id="back">Back</button>
+                <button class="button" id="%" name="operation">%</button>
+                <button class="button" id="CE" name="mods">CE</button>
+                <button class="button" id="C" name="mods">C</button>
+                <button class="button" id="back" name="mods">Back</button>
                 <!--Second row-->
-                <button class="button">1/x</button>
-                <button class="button">X^2</button>
-                <button class="button">x^(1/2)</button>
-                <button class="button" id="/">/</button>
+                <button class="button" id="1/x" name="operation">1/x</button>
+                <button class="button" id="X^2" name="operation">X^2</button>
+                <button class="button" id="x^(1/2)" name="operation">x^(1/2)</button>
+                <button class="button" id="div" name="operation">/</button>
                 <!--Third row-->
-                <button class="button main-buttons" id="7">7</button>
-                <button class="button main-buttons" id="8">8</button>
-                <button class="button main-buttons" id="9">9</button>
-                <button class="button" id="x">X</button>
+                <button class="button main-buttons" id="7" name="number">7</button>
+                <button class="button main-buttons" id="8" name="number">8</button>
+                <button class="button main-buttons" id="9" name="number">9</button>
+                <button class="button" id="mul" name="operation">X</button>
                 <!--Fourth row-->
-                <button class="button main-buttons" id="4">4</button>
-                <button class="button main-buttons" id="5">5</button>
-                <button class="button main-buttons" id="6">6</button>
-                <button class="button" id="-">-</button>
+                <button class="button main-buttons" id="4" name="number">4</button>
+                <button class="button main-buttons" id="5" name="number">5</button>
+                <button class="button main-buttons" id="6" name="number">6</button>
+                <button class="button" id="subt" name="operation">-</button>
                 <!--Fifth row-->
-                <button class="button main-buttons" id="1">1</button>
-                <button class="button main-buttons" id="2">2</button>
-                <button class="button main-buttons" id="3">3</button>
-                <button class="button" id="+">+</button>
+                <button class="button main-buttons" id="1" name="number">1</button>
+                <button class="button main-buttons" id="2" name="number">2</button>
+                <button class="button main-buttons" id="3" name="number">3</button>
+                <button class="button" id="sum" name="operation">+</button>
                 <!--Sixth row-->
-                <button class="button main-buttons" id="+/-">+/-</button>
-                <button class="button main-buttons" id="0">0</button>
-                <button class="button main-buttons">,</button>
-                <button class="button equal-button">=</button>
+                <button class="button main-buttons" id="+/-" name="mods">+/-</button>
+                <button class="button main-buttons" id="0" name="number">0</button>
+                <button class="button main-buttons" id="." name="number">.</button>
+                <button class="button equal-button" id="equal" name="operation">=</button>
             </div>
         </div>
     </section>
 
-    <script src="./app/app.js" type="module"></script>    
+    <script src="./app/Display.js" type="text/Javascript"></script>      
+    <script src="./app/Calculator.js" type="text/Javascript"></script> 
+    <script src="./app/app.js" type="text/Javascript"></script>           
+    
 </body>
 </html>
